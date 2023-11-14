@@ -48,3 +48,15 @@ class BooksResource:
 
     def delete(self, req, resp):
         resp.text = "Endpoint to delete a book"
+
+
+def handler(req, resp):
+    resp.text = 'Sample'
+
+
+app.add_route('/sample', handler)
+
+
+@app.route('/template')
+def template_handler(req, resp):
+    resp.body = app.template('index.html', context={"name": "Kirillo", "title": "Best Framework"}).encode()
